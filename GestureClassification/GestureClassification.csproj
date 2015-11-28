@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF4960AF-150A-4209-9E5D-022DE0DB1F36}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestureClassification</RootNamespace>
+    <AssemblyName>GestureClassification</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\PGMUtil.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Matrix.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Classifiers\DiscriminantBayesianClassifier.cs" />
+    <Compile Include="ViewModel\Classifiers\SingleFeatureBayesianClassifier.cs" />
+    <Compile Include="ViewModel\ScoreModel.cs" />
+    <Compile Include="ViewModel\TrainModel.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0003.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0003.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0069.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0069.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0445.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0445.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0762.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0762.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0879.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0879.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\BioID_0013.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\bioid_0013.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\BioID_0113.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\bioid_0113.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\BioID_0167.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\bioid_0167.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\BioID_0878.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\bioid_0878.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\BioID_0950.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Down\bioid_0950.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\BioID_0172.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\bioid_0172.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\BioID_0379.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\bioid_0379.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\BioID_0439.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\bioid_0439.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\BioID_0619.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\bioid_0619.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\BioID_0810.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Front\bioid_0810.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\BioID_0107.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\bioid_0107.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\BioID_0201.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\bioid_0201.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\BioID_0262.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\bioid_0262.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\BioID_0485.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\bioid_0485.pts" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\BioID_0580.pgm" />
+    <None Include="Model\Dataset\Testing Dataset\Looking Left\bioid_0580.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0009.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0009.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0055.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0055.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0100.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0100.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0291.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0291.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0425.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0425.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0429.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0429.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0596.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0596.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0676.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0676.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0740.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0740.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0743.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0743.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0831.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0831.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0876.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0876.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0900.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0900.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_0988.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_0988.pts" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\BioID_1172.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Closing Eyes\bioid_1172.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0000.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0000.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0043.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0043.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0070.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0070.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0076.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0076.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0090.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0090.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0106.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0106.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0120.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0120.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0222.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0222.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0264.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0264.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0378.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0378.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0474.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0474.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0606.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0606.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_0955.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_0955.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_1002.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_1002.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\BioID_1310.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Down\bioid_1310.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0092.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0092.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0102.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0102.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0203.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0203.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0228.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0228.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0279.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0279.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0359.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0359.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0373.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0373.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0419.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0419.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0497.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0497.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0609.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0609.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0659.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0659.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0739.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0739.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_0776.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_0776.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_1145.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_1145.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\BioID_1486.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Front\bioid_1486.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0171.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0171.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0175.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0175.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0192.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0192.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0263.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0263.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0483.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0483.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0574.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0574.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0575.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0575.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0611.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0611.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0899.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0899.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0933.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0933.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_0938.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_0938.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_1060.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_1060.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_1223.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_1223.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_1303.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_1303.pts" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\BioID_1371.pgm" />
+    <None Include="Model\Dataset\Training Dataset\Looking Left\bioid_1371.pts" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,8 @@
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\bin\Debug\GestureClassification.exe.config
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.csprojResolveAssemblyReference.cache
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.Properties.Resources.resources
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.csproj.GenerateResource.Cache
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\bin\Debug\GestureClassification.exe
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\bin\Debug\GestureClassification.pdb
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.exe
+D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.pdb
