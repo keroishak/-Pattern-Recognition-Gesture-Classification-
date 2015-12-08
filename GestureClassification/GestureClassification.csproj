@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\PGMUtil.cs" />
+    <Compile Include="ViewModel\AppModel.cs" />
+    <Compile Include="ViewModel\ProcessManager.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +71,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0003.pgm" />
     <None Include="Model\Dataset\Testing Dataset\Closing Eyes\bioid_0003.pts" />
     <None Include="Model\Dataset\Testing Dataset\Closing Eyes\BioID_0069.pgm" />

@@ -6,6 +6,7 @@ D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassificat
 D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\bin\Debug\GestureClassification.pdb
 D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.exe
 D:\Projects\Visual Studio 2013\Projects\GestureClassification\GestureClassification\obj\Debug\GestureClassification.pdb
+<<<<<<< HEAD
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\bin\Debug\GestureClassification.exe.config
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\obj\Debug\GestureClassification.exe
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\obj\Debug\GestureClassification.pdb
@@ -14,3 +15,14 @@ D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassificat
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\obj\Debug\GestureClassification.csprojResolveAssemblyReference.cache
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\obj\Debug\GestureClassification.Properties.Resources.resources
 D:\Projects\Visual Studio 2013\Projects\Pattern Recognition - GestureClassification\GestureClassification\obj\Debug\GestureClassification.csproj.GenerateResource.Cache
+=======
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\bin\Debug\GestureClassification.exe.config
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.exe
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.pdb
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\bin\Debug\GestureClassification.exe
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\bin\Debug\GestureClassification.pdb
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.csprojResolveAssemblyReference.cache
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.Properties.Resources.resources
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.View.MainForm.resources
+H:\Projects\-Pattern-Recognition-Gesture-Classification-\GestureClassification\obj\Debug\GestureClassification.csproj.GenerateResource.Cache
+>>>>>>> faa3f673de08b1492f5c218d23fedf0913feef93

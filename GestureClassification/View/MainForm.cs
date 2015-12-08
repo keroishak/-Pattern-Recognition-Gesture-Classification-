@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestureClassification.Model;
+using GestureClassification.ViewModel;
+
 namespace GestureClassification.View
 {
     public partial class MainForm : Form
@@ -15,14 +16,6 @@ namespace GestureClassification.View
         public MainForm()
         {
             InitializeComponent();
-            Matrix a = new Matrix(2, 2);
-            a[0, 0] = 4;
-            a[0, 1] = 7;
-            a[1, 0] = 2;
-            a[1, 1] = 6;
-           Matrix y= a.Invert();
-           Matrix id = a*y;
-           int f = 5;
         }
     }
 }
