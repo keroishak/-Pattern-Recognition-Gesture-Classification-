@@ -46,9 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\PGMUtil.cs" />
+    <Compile Include="Model\Utility.cs" />
+    <Compile Include="Model\Vector2.cs" />
     <Compile Include="ViewModel\AppModel.cs" />
+    <Compile Include="ViewModel\Classifiers\IClassifier.cs" />
+    <Compile Include="ViewModel\Classifiers\KNearestNeighbour.cs" />
+    <Compile Include="ViewModel\FeatureExtraction\EuclideanDistance.cs" />
+    <Compile Include="ViewModel\FeatureExtraction\IExtract.cs" />
     <Compile Include="ViewModel\ProcessManager.cs" />
+    <Compile Include="ViewModel\Validation\KfoldCrossValidation.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,8 +64,7 @@
     <Compile Include="Model\Matrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\Classifiers\DiscriminantBayesianClassifier.cs" />
-    <Compile Include="ViewModel\Classifiers\SingleFeatureBayesianClassifier.cs" />
+    <Compile Include="ViewModel\Classifiers\BayesianClassifier.cs" />
     <Compile Include="ViewModel\ScoreModel.cs" />
     <Compile Include="ViewModel\TrainModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
