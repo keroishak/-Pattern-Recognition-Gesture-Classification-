@@ -54,7 +54,7 @@
     <Compile Include="ViewModel\FeatureExtraction\EuclideanDistance.cs" />
     <Compile Include="ViewModel\FeatureExtraction\IExtract.cs" />
     <Compile Include="ViewModel\ProcessManager.cs" />
-    <Compile Include="ViewModel\Validation\KfoldCrossValidation.cs" />
+    <Compile Include="ViewModel\Validation\KFoldCrossValidation.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,7 +252,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

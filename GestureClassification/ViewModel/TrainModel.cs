@@ -16,7 +16,8 @@ namespace GestureClassification.ViewModel
     {
         public bool Trained { get; private set; }
         public IExtract featureExtraction { get; private set; }
-        public ClassifierType CType { get; private set; }
+        public ClassifierType cType { get; private set; }
+        public bool[] Badass{ get; private set; }
         public int NumberofClasses { get; private set; }
         public int FeaturesDimension { get; private set; }
         public Dictionary<byte, List<List<double>>> TrainingData { get; private set; }
@@ -24,15 +25,15 @@ namespace GestureClassification.ViewModel
         public List<Matrix> Covariance { get; private set; }
         public TrainModel(FeatureExtractionType eType, ClassifierType cType)
         {
-            CType = cType;
+            this.cType = cType;
             Trained = false;
             if (eType == FeatureExtractionType.EuclideanDistance)
-                featureExtraction = new EuclideanDistance(13);
+                featureExtraction = new EuclideanDistance(14);
 
         }
         public TrainModel(FeatureExtractionType eType, int EuclideanCentroidPointIndex, ClassifierType cType)
         {
-            CType = cType;
+            this.cType = cType;
             Trained = false;
             if (eType == FeatureExtractionType.EuclideanDistance)
                 featureExtraction = new EuclideanDistance(EuclideanCentroidPointIndex);
@@ -40,14 +41,22 @@ namespace GestureClassification.ViewModel
         }
         private void PrepareData(List<Data> trainingData)
         {
+            TrainingData = new Dictionary<byte, List<List<double>>>();
+            Badass = new bool[19];
+            Badass[1] = Badass[8] = Badass[10] = Badass[12] = Badass[13] = Badass[15] = Badass[16] = true;
             for (int i = 0; i < trainingData.Count; ++i)
             {
                 List<double> arr = featureExtraction.Extract(trainingData[i].Points);
+                List<double> filtered = new List<double>();
+                    for (int h = 0; h < arr.Count; ++h)
+                        if (!Badass[h])
+                            filtered.Add(arr[h]);
+               
                 if (!TrainingData.ContainsKey(trainingData[i].Class))
                 {
                     TrainingData.Add(trainingData[i].Class, new List<List<double>>());
                 }
-                TrainingData[trainingData[i].Class].Add(arr);
+                TrainingData[trainingData[i].Class].Add(filtered);
             }
         }
         public void Train(List<Data> trainingData)
@@ -56,7 +65,7 @@ namespace GestureClassification.ViewModel
             NumberofClasses = TrainingData.Keys.Count;
             FeaturesDimension = TrainingData[0][0].Count;
             #region BayesianTraining
-            if (CType == ClassifierType.Bayesian)
+            if (cType == ClassifierType.Bayesian)
             {
                 Covariance = new List<Matrix>(NumberofClasses);
                 Mu = new Matrix(FeaturesDimension, NumberofClasses);
@@ -64,7 +73,7 @@ namespace GestureClassification.ViewModel
                 {
                     for (int j = 0; j < FeaturesDimension; ++j)
                     {
-                        for (int i = 0; i < TrainingData[c][j].Count; ++i)
+                        for (int i = 0; i < TrainingData[c].Count; ++i)
                             Mu[j, c] += TrainingData[c][i][j];
 
                         Mu[j, c] /= TrainingData[c].Count;

@@ -1,27 +1,31 @@
-﻿using System; 
-using System.Text; 
-using System.IO; 
-using System.Drawing; 
+﻿using System;
+using System.Text;
+using System.IO;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace GestureClassification.Model
 {
-    
+    public enum DatasetType
+    {
+        Training,
+        Testing
+    }
     public struct Data
     {
         /// <summary>
         /// Representation of one row of our dataset
         /// </summary>
 
-        public string PGMFileName { get; set; }
-        public List<Vector2> Points{get;set;}
+        public string PGMFilePath { get; set; }
+        public List<Vector2> Points { get; set; }
         public byte Class { get; set; }
     }
     public static class Utility
     {
         private static ColorPalette grayScale;
-
         public static Bitmap ToBitmap(string filePath)
         {
             using (FileStream fs = new FileStream(filePath, FileMode.Open))
@@ -88,12 +92,10 @@ namespace GestureClassification.Model
                 }
             }
         }
-
         public static void SaveAsBitmap(string src, string dest)
         {
             ToBitmap(src).Save(dest, ImageFormat.Bmp);
         }
-
         private static int ReadNumber(BinaryReader reader, StringBuilder sb)
         {
             char c = '\0';
@@ -104,12 +106,11 @@ namespace GestureClassification.Model
             }
             return int.Parse(sb.ToString());
         }
-
-        private static List<Vector2> LoadPoints(string fileName)
+        public static List<Vector2> LoadPoints(string fileName)
         {
             StreamReader file = new StreamReader(fileName);
             string line = null;
-            List<Vector2> pts=new List<Vector2>();
+            List<Vector2> pts = new List<Vector2>();
             string[] substr;
             //main loop on whole file line by line
             while ((line = file.ReadLine()) != null)
@@ -141,10 +142,48 @@ namespace GestureClassification.Model
             file.Close();
             return pts;
         }
-
-        public static List<Data> LoadDataFromDirectory()
+        private static void ReadFiles(DirectoryInfo dir, byte classnumber, ref List<Data> data)
         {
-            return new List<Data>();
+            int flag = 1;
+            Data temp = new Data();
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                if (flag == 1)
+                {
+                    temp.Class = classnumber;
+                    temp.PGMFilePath = file.DirectoryName + "\\" + file.ToString();
+                }
+                else if (flag == 2)
+                {
+                    temp.Points = LoadPoints(file.DirectoryName + "\\" + file.ToString());
+                    flag = 0;
+                    data.Add(temp);
+                }
+                ++flag;
+            }
+        }
+        public static List<Data> LoadDataset(DatasetType Type)
+        {
+            List<Data> dataset = new List<Data>();
+            DirectoryInfo info;
+            if (Type == DatasetType.Training)
+                info = new DirectoryInfo(@"../../Model/Dataset/Training Dataset");
+            else
+                info = new DirectoryInfo(@"../../Model/Dataset/Testing Dataset");
+            DirectoryInfo[] dirs = info.GetDirectories();
+            List<string> classes = new List<string>();
+            List<Thread> thrd = new List<Thread>();
+            for (int i = 0; i < dirs.Length; ++i)
+            {
+                classes.Add(dirs[i].Name);
+                int dumpvalue = i; // because of multi-threaded
+                ReadFiles(dirs[i], (byte)i, ref dataset);
+                //thrd.Add(new Thread(new ParameterizedThreadStart(target => ReadFiles(dirs[dumpvalue], (byte)dumpvalue, ref dataset))));
+                //thrd[i].Start();
+            }
+            /*for (int j = 0; j < thrd.Count; ++j)
+                thrd[j].Join();*/
+            return dataset;
         }
     }
 }

@@ -4,7 +4,7 @@
 //int main()
 //{
 //	AppHandle* handle = new AppHandle();
-//	bool res = MSCreateProcess("C:/Windows/notepad.exe",handle);
+//	bool res = MSCreateProcess("C:\Program Files(x86)\Notepad++", handle);
 //	res = MSGetWindowHandle(handle);
 //	res = MSMinimize(handle);
 //	return 0;

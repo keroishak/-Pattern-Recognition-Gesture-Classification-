@@ -501,7 +501,7 @@ namespace GestureClassification.Model
                     r[i, j] = m[i, j] * n;
             return r;
         }
-        private static Matrix Add(Matrix m1, Matrix m2)         // Sčítání matic
+        private static Matrix Add(Matrix m1, Matrix m2)         
         {
           if (m1.rows != m2.rows || m1.cols != m2.cols) throw new MException("Matrices must have the same dimensions!");
             Matrix r = new Matrix(m1.rows, m1.cols);
@@ -511,7 +511,7 @@ namespace GestureClassification.Model
             return r;
         }
 
-        public static string NormalizeMatrixString(string matStr)	// From Andy - thank you! :)
+        public static string NormalizeMatrixString(string matStr)	
         {
             // Remove any multiple spaces
             while (matStr.IndexOf("  ") != -1)
